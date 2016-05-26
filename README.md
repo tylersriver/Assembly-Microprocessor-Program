@@ -6,5 +6,5 @@
 - Test directory has files used for testing several individual components of our
   design. Both hardware and software.
 
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](https://github.com/tylersriver/Assembly-Microprocessor-Program/blob/master/Hardware%20Architecture.png "Optional Title")
 
