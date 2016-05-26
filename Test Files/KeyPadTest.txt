@@ -1,0 +1,73 @@
+***************************************************************** 
+*	Computer Systems										    *
+*	Key Pad Test											    *
+*													 		    *
+*	Date: March 2, 2016										    *			
+*	Authors: Tyler Sriver, Brad Browning					    *
+*															    *
+*	File: KeyPadTest.txt									    *	
+*	Purpose: Initializes LCD and keypad presses type characters *
+*			 A-T											    *	
+*****************************************************************
+
+***********************
+* Character Locations *
+***********************
+		ORG	$F000
+		FCB	$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F,$50,$51,$52,$53,$54
+
+*************************************
+* Program Start and interrupt clear *
+*************************************
+		ORG	$E000
+		LDS	#$ff
+		CLI
+		
+***********************
+* LCD Initialization: *
+***********************		
+		LDX	#$C000
+		
+		LDAA	#$01
+her1	BRSET	0,x	$80	her1
+		STAA	0,x
+		
+		LDAA	#$30
+her2	BRSET	0,x	$80	her2
+		STAA	0,x
+		
+		LDAA	#$08
+her3	BRSET	0,x	$80	her3
+		STAA	0,x
+	
+		LDAA	#$06
+her4	BRSET	0,x	$80	her4
+		STAA	0,x
+	
+		LDAA	#$3c
+her5	BRSET	0,x	$80	her5
+		STAA	0,x
+	
+		LDAA	#$0F
+her6	BRSET	0,x	$80	her6
+		STAA	0,x	
+
+
+
+SPIN	BRA	SPIN	
+
+*****************************
+* Interrupt Service Routine *
+*****************************
+ISR	LDX	#$F000
+	LDAB	$B000
+	ANDB	#%00011111
+	ABX
+	LDAA	0,X
+	STAA	$C001
+	RTI
+
+	ORG	$FFF2
+	FDB	ISR
+	ORG	$FFFE
+	FDB	$E000

@@ -1,0 +1,718 @@
+***************************************************************
+*	Computer Systems										  *
+*	Key Codes												  *
+*													 		  *
+*	Date: March 2, 2016										  *			
+*	Authors: Tyler Sriver, Brad Browning					  *
+*															  *
+*	File: keyCodes.txt									 	  *	
+*	Purpose: FCB statements for characters					  *
+***************************************************************
+
+		ORG		$F000
+		
+		A:	FCB	$9	X
+			FCB	$32	Y
+			FCB	$1F	X
+			FCB	$BE	Y
+			FCB	$36	X
+			FCB	$32	Y
+			FCB	$2C	X
+			FCB	$6F	Y
+			FCB	$13	X
+			FCB	$6D	Y
+			
+		B:	FCB	$A	X
+			FCB	$32	Y
+			FCB	$A	X
+			FCB	$BD	Y
+			FCB	$26	X
+			FCB	$BD	Y
+			FCB	$33	X
+			FCB	$B2	Y
+			FCB	$34	X
+			FCB	$8C	Y
+			FCB	$28	X
+			FCB	$77	Y
+			FCB	$B	X
+			FCB	$76	Y
+			FCB	$28	X
+			FCB	$75	Y
+			FCB	$33	X
+			FCB	$60	Y
+			FCB	$33	X
+			FCB	$3E	Y
+			FCB	$2A	X
+			FCB	$32	Y
+			FCB	$C	X
+			FCB	$32	Y
+			
+		C:	FCB	$39	X
+			FCB	$32	Y
+			FCB	$21	X
+			FCB	$32	Y
+			FCB	$9	X
+			FCB	$5A	Y
+			FCB	$A	X
+			FCB	$92	Y
+			FCB	$1E	X
+			FCB	$BD	Y
+			FCB	$39	X
+			FCB	$BD	Y
+			
+		D:	FCB	$9	X
+			FCB	$32	Y
+			FCB	$9	X
+			FCB	$BD	Y
+			FCB	$22	X
+			FCB	$B6	Y
+			FCB	$37	X
+			FCB	$A4	Y
+			FCB	$37	X
+			FCB	$4B	Y
+			FCB	$24	X
+			FCB	$37	Y
+			FCB	$9	X
+			FCB	$31	Y
+			
+		E:	FCB	$9	X
+			FCB	$32	Y
+			FCB	$9	X
+			FCB	$BB	Y
+			FCB	$3A	X
+			FCB	$BB	Y
+			FCB	$9	X
+			FCB	$BB	Y
+			FCB	$A	X
+			FCB	$72	Y
+			FCB	$3B	X
+			FCB	$72	Y
+			FCB	$A	X
+			FCB	$71	Y
+			FCB	$9	X
+			FCB	$32	Y
+			FCB	$3A	X
+			FCB	$32	Y
+			
+		F:	FCB	$9	X
+			FCB	$32	Y
+			FCB	$9	X
+			FCB	$BD	Y
+			FCB	$3B	X
+			FCB	$BD	Y
+			FCB	$A	X
+			FCB	$BC	Y
+			FCB	$9	X
+			FCB	$81	Y
+			FCB	$29	X
+			FCB	$81	Y
+			
+		G:	FCB	$2F	X
+			FCB	$BD	Y
+			FCB	$9	X
+			FCB	$BD	Y
+			FCB	$8	X
+			FCB	$32	Y
+			FCB	$38	X
+			FCB	$32	Y
+			FCB	$39	X
+			FCB	$6D	Y
+			FCB	$1E	X
+			FCB	$6D	Y
+			
+		H:	FCB	$7	X
+			FCB	$32	Y
+			FCB	$7	X
+			FCB	$BD	Y
+			FCB	$7	X
+			FCB	$72	Y
+			FCB	$3A	X
+			FCB	$71	Y
+			FCB	$3A	X
+			FCB	$BD	Y
+			FCB	$3A	X
+			FCB	$32	Y
+			
+		I:	FCB	$7	X
+			FCB	$32	Y
+			FCB	$39	X
+			FCB	$32	Y
+			FCB	$1E	X
+			FCB	$32	Y
+			FCB	$1E	X
+			FCB	$BE	Y
+			FCB	$6	X
+			FCB	$BE	Y
+			FCB	$39	X
+			FCB	$BE	Y
+			
+		J:	FCB	$7	X
+			FCB	$BD	Y
+			FCB	$3A	X
+			FCB	$BD	Y
+			FCB	$21	X
+			FCB	$BD	Y
+			FCB	$21	X
+			FCB	$45	Y
+			FCB	$1B	X
+			FCB	$32	Y
+			FCB	$C	X
+			FCB	$33	Y
+			FCB	$7	X
+			FCB	$46	Y
+			FCB	$6	X
+			FCB	$5A	Y
+			
+		K:	FCB	$7	X
+			FCB	$32	Y
+			FCB	$7	X
+			FCB	$BD	Y
+			FCB	$7	X
+			FCB	$77	Y
+			FCB	$39	X
+			FCB	$BC	Y
+			FCB	$7	X
+			FCB	$77	Y
+			FCB	$3A	X
+			FCB	$33	Y
+			
+		L:	FCB	$7	X
+			FCB	$BD	Y
+			FCB	$6	X
+			FCB	$32	Y
+			FCB	$3A	X
+			FCB	$32	Y
+			
+		M:	FCB	$6	X
+			FCB	$32	Y
+			FCB	$E	X
+			FCB	$BE	Y
+			FCB	$20	X
+			FCB	$81	Y
+			FCB	$32	X
+			FCB	$BD	Y
+			FCB	$3B	X
+			FCB	$32	Y
+		
+		N:	FCB	$6	X
+			FCB	$32	Y
+			FCB	$7	X
+			FCB	$BF	Y
+			FCB	$36	X
+			FCB	$32	Y
+			FCB	$36	X
+			FCB	$BF	Y
+			
+		O:	FCB	$2F	X
+			FCB	$32	Y
+			FCB	$10	X
+			FCB	$32	Y
+			FCB	$6	X
+			FCB	$59	Y
+			FCB	$6	X
+			FCB	$9F	Y
+			FCB	$12	X
+			FCB	$BC	Y
+			FCB	$30	X
+			FCB	$BD	Y
+			FCB	$39	X
+			FCB	$9F	Y
+			FCB	$39	X
+			FCB	$59	Y
+			FCB	$2F	X
+			FCB	$32	Y
+			
+		P:	FCB	$7	X
+			FCB	$32	Y
+			FCB	$6	X
+			FCB	$BD	Y
+			FCB	$25	X
+			FCB	$BE	Y
+			FCB	$35	X
+			FCB	$AB	Y
+			FCB	$36	X
+			FCB	$8B	Y
+			FCB	$28	X
+			FCB	$78	Y
+			FCB	$8	X
+			FCB	$76	Y
+			
+		Q:	FCB	$39	X
+			FCB	$43	Y
+			FCB	$36	X
+			FCB	$31	Y
+			FCB	$18	X
+			FCB	$2F	Y
+			FCB	$18	X
+			FCB	$3B	Y
+			FCB	$2B	X
+			FCB	$40	Y
+			FCB	$37	X
+			FCB	$66	Y
+			FCB	$36	X
+			FCB	$A0	Y
+			FCB	$2C	X
+			FCB	$B1	Y
+			FCB	$1C	X
+			FCB	$BA	Y
+			FCB	$9	X
+			FCB	$AD	Y
+			FCB	$6	X
+			FCB	$6B	Y
+			FCB	$8	X
+			FCB	$49	Y
+			FCB	$18	X
+			FCB	$3B	Y
+			
+		R:	FCB	$7	X
+			FCB	$32	Y
+			FCB	$6	X
+			FCB	$BD	Y
+			FCB	$1B	X
+			FCB	$BC	Y
+			FCB	$2C	X
+			FCB	$B3	Y
+			FCB	$35	X
+			FCB	$A4	Y
+			FCB	$36	X
+			FCB	$8C	Y
+			FCB	$2D	X
+			FCB	$78	Y
+			FCB	$1F	X
+			FCB	$6E	Y
+			FCB	$8	X
+			FCB	$6D	Y
+			FCB	$3B	X
+			FCB	$32	Y
+			
+		S:	FCB	$36	X
+			FCB	$BD	Y
+			FCB	$16	X
+			FCB	$BB	Y
+			FCB	$A	X
+			FCB	$AD	Y
+			FCB	$7	X
+			FCB	$94	Y
+			FCB	$F	X
+			FCB	$78	Y
+			FCB	$22	X
+			FCB	$75	Y
+			FCB	$35	X
+			FCB	$69	Y
+			FCB	$35	X
+			FCB	$58	Y
+			FCB	$36	X
+			FCB	$40	Y
+			FCB	$29	X
+			FCB	$37	Y
+			FCB	$17	X
+			FCB	$33	Y
+			FCB	$A	X
+			FCB	$33	Y
+			
+		T:	FCB	$1F	X
+			FCB	$32	Y
+			FCB	$1E	X
+			FCB	$BD	Y
+			FCB	$2	X
+			FCB	$BD	Y
+			FCB	$3A	X
+			FCB	$BD	Y
+			
+		U:	FCB	$6	X
+			FCB	$BD	Y
+			FCB	$6	X
+			FCB	$8A	Y
+			FCB	$6	X
+			FCB	$64	Y
+			FCB	$8	X
+			FCB	$50	Y
+			FCB	$B	X
+			FCB	$3E	Y
+			FCB	$18	X
+			FCB	$35	Y
+			FCB	$29	X
+			FCB	$35	Y
+			FCB	$37	X
+			FCB	$3F	Y
+			FCB	$39	X
+			FCB	$56	Y
+			FCB	$3B	X
+			FCB	$8D	Y
+			FCB	$3B	X
+			FCB	$BE	Y
+			
+		V:	FCB	$6	X
+			FCB	$BD	Y
+			FCB	$1F	X
+			FCB	$32	Y
+			FCB	$3A	X
+			FCB	$BE	Y
+			
+		W:	FCB	$4	X
+			FCB	$BF	Y
+			FCB	$A	X
+			FCB	$32	Y
+			FCB	$1F	X
+			FCB	$65	Y
+			FCB	$33	X
+			FCB	$31	Y
+			FCB	$3A	X
+			FCB	$BE	Y
+			
+		X:	FCB	$2	X
+			FCB	$32	Y
+			FCB	$3C	X
+			FCB	$BD	Y
+			FCB	$1F	X
+			FCB	$77	Y
+			FCB	$5	X
+			FCB	$BD	Y
+			FCB	$39	X
+			FCB	$32	Y
+			
+		Y:	FCB	$1E	X
+			FCB	$32	Y
+			FCB	$1E	X
+			FCB	$82	Y
+			FCB	$3	X
+			FCB	$BC	Y
+			FCB	$1E	X
+			FCB	$81	Y
+			FCB	$3A	X
+			FCB	$BE	Y
+			
+		Z:	FCB	$3A	X
+			FCB	$32	Y
+			FCB	$4	X
+			FCB	$32	Y
+			FCB	$3A	X
+			FCB	$BD	Y
+			FCB	$4	X
+			FCB	$BD	Y
+			
+		0:	FCB	$2E	X
+			FCB	$BF	Y
+			FCB	$D	X
+			FCB	$BD	Y
+			FCB	$5	X
+			FCB	$B9	Y
+			FCB	$1	X
+			FCB	$AC	Y
+			FCB	$1	X
+			FCB	$46	Y
+			FCB	$1	X
+			FCB	$36	Y
+			FCB	$A	X
+			FCB	$33	Y
+			FCB	$17	X
+			FCB	$32	Y
+			FCB	$21	X
+			FCB	$31	Y
+			FCB	$2F	X
+			FCB	$31	Y
+			FCB	$3B	X
+			FCB	$38	Y
+			FCB	$3C	X
+			FCB	$61	Y
+			FCB	$3C	X
+			FCB	$81	Y
+			FCB	$3C	X
+			FCB	$B3	Y
+			FCB	$34	X
+			FCB	$BC	Y
+			FCB	$30	X
+			FCB	$BD	Y
+			FCB	$37	X
+			FCB	$B9	Y
+			FCB	$3	X
+			FCB	$34	Y
+			
+		1:	FCB	$8	X
+			FCB	$A7	Y
+			FCB	$1F	X
+			FCB	$BD	Y
+			FCB	$1F	X
+			FCB	$32	Y
+			FCB	$6	X
+			FCB	$32	Y
+			FCB	$36	X
+			FCB	$32	Y
+			
+		2:	FCB	$3C	X
+			FCB	$33	Y
+			FCB	$1	X
+			FCB	$32	Y
+			FCB	$36	X
+			FCB	$8F	Y
+			FCB	$3C	X
+			FCB	$A3	Y
+			FCB	$3C	X
+			FCB	$B5	Y
+			FCB	$32	X
+			FCB	$BB	Y
+			FCB	$27	X
+			FCB	$BC	Y
+			FCB	$1C	X
+			FCB	$BB	Y
+			FCB	$15	X
+			FCB	$B9	Y
+			FCB	$10	X
+			FCB	$B3	Y
+			FCB	$D	X
+			FCB	$AE	Y
+			FCB	$9	X
+			FCB	$A9	Y
+			FCB	$6	X
+			FCB	$A4	Y
+			FCB	$5	X
+			FCB	$9F	Y
+			FCB	$3	X
+			FCB	$9A	Y
+			
+		3:	FCB	$1	X
+			FCB	$BC	Y
+			FCB	$3C	X
+			FCB	$BD	Y
+			FCB	$2	X
+			FCB	$81	Y
+			FCB	$28	X
+			FCB	$81	Y
+			FCB	$31	X
+			FCB	$7E	Y
+			FCB	$37	X
+			FCB	$76	Y
+			FCB	$3B	X
+			FCB	$6E	Y
+			FCB	$3D	X
+			FCB	$62	Y
+			FCB	$3C	X
+			FCB	$55	Y
+			FCB	$3C	X
+			FCB	$4B	Y
+			FCB	$3A	X
+			FCB	$42	Y
+			FCB	$34	X
+			FCB	$33	Y
+			FCB	$28	X
+			FCB	$32	Y
+			FCB	$3	X
+			FCB	$32	Y
+			
+		4:	FCB	$36	X
+			FCB	$32	Y
+			FCB	$36	X
+			FCB	$BC	Y
+			FCB	$1	X
+			FCB	$81	Y
+			FCB	$3C	X
+			FCB	$81	Y
+			
+		5:	FCB	$3C	X
+			FCB	$BC	Y
+			FCB	$1	X
+			FCB	$BC	Y
+			FCB	$1	X
+			FCB	$80	Y
+			FCB	$29	X
+			FCB	$81	Y
+			FCB	$2A	X
+			FCB	$81	Y
+			FCB	$2E	X
+			FCB	$7F	Y
+			FCB	$33	X
+			FCB	$7D	Y
+			FCB	$37	X
+			FCB	$74	Y
+			FCB	$39	X
+			FCB	$6C	Y
+			FCB	$3A	X
+			FCB	$67	Y
+			FCB	$3C	X
+			FCB	$5B	Y
+			FCB	$3C	X
+			FCB	$58	Y
+			FCB	$3B	X
+			FCB	$4F	Y
+			FCB	$3A	X
+			FCB	$49	Y
+			FCB	$39	X
+			FCB	$44	Y
+			FCB	$35	X
+			FCB	$40	Y
+			FCB	$31	X
+			FCB	$3E	Y
+			FCB	$2B	X
+			FCB	$3D	Y
+			FCB	$26	X
+			FCB	$3B	Y
+			FCB	$20	X
+			FCB	$3B	Y
+			FCB	$1B	X
+			FCB	$3B	Y
+			FCB	$17	X
+			FCB	$3C	Y
+			FCB	$10	X
+			FCB	$3C	Y
+			FCB	$C	X
+			FCB	$3C	Y
+			FCB	$6	X
+			FCB	$3D	Y
+			FCB	$1	X
+			FCB	$3E	Y
+			
+		6:	FCB	$3C	X
+			FCB	$BC	Y
+			FCB	$27	X
+			FCB	$BC	Y
+			FCB	$1A	X
+			FCB	$B6	Y
+			FCB	$11	X
+			FCB	$B0	Y
+			FCB	$9	X
+			FCB	$A4	Y
+			FCB	$7	X
+			FCB	$99	Y
+			FCB	$5	X
+			FCB	$8E	Y
+			FCB	$3	X
+			FCB	$84	Y
+			FCB	$1	X
+			FCB	$78	Y
+			FCB	$2	X
+			FCB	$6F	Y
+			FCB	$1	X
+			FCB	$67	Y
+			FCB	$3	X
+			FCB	$5D	Y
+			FCB	$3	X
+			FCB	$55	Y
+			FCB	$6	X
+			FCB	$4D	Y
+			FCB	$B	X
+			FCB	$45	Y
+			FCB	$E	X
+			FCB	$41	Y
+			FCB	$13	X
+			FCB	$3B	Y
+			FCB	$1A	X
+			FCB	$3A	Y
+			FCB	$1F	X
+			FCB	$38	Y
+			FCB	$24	X
+			FCB	$38	Y
+			FCB	$2C	X
+			FCB	$37	Y
+			FCB	$33	X
+			FCB	$3C	Y
+			FCB	$35	X
+			FCB	$43	Y
+			FCB	$39	X
+			FCB	$4A	Y
+			FCB	$3A	X
+			FCB	$52	Y
+			FCB	$3C	X
+			FCB	$5A	Y
+			FCB	$3C	X
+			FCB	$63	Y
+			FCB	$3C	X
+			FCB	$6B	Y
+			FCB	$3A	X
+			FCB	$73	Y
+			FCB	$38	X
+			FCB	$79	Y
+			FCB	$33	X
+			FCB	$7B	Y
+			FCB	$2F	X
+			FCB	$7B	Y
+			FCB	$29	X
+			FCB	$7C	Y
+			FCB	$21	X
+			FCB	$7C	Y
+			FCB	$1A	X
+			FCB	$7B	Y
+			FCB	$14	X
+			FCB	$76	Y
+			FCB	$E	X
+			FCB	$70	Y
+			FCB	$A	X
+			FCB	$6D	Y
+			FCB	$8	X
+			FCB	$67	Y
+			FCB	$7	X
+			FCB	$61	Y
+			FCB	$7	X
+			FCB	$5B	Y
+			FCB	$5	X
+			FCB	$5B	Y
+			
+		7:	FCB	$1	X
+			FCB	$B3	Y
+			FCB	$1	X
+			FCB	$BD	Y
+			FCB	$1F	X
+			FCB	$BD	Y
+			FCB	$16	X
+			FCB	$34	Y
+			FCB	$1B	X
+			FCB	$78	Y
+			FCB	$29	X
+			FCB	$79	Y
+			FCB	$B	X
+			FCB	$78	Y
+			
+		8:	FCB	$14	X
+			FCB	$32	Y
+			FCB	$2B	X
+			FCB	$32	Y
+			FCB	$3A	X
+			FCB	$40	Y
+			FCB	$3D	X
+			FCB	$64	Y
+			FCB	$33	X
+			FCB	$74	Y
+			FCB	$15	X
+			FCB	$75	Y
+			FCB	$D	X
+			FCB	$87	Y
+			FCB	$D	X
+			FCB	$A7	Y
+			FCB	$1B	X
+			FCB	$B3	Y
+			FCB	$32	X
+			FCB	$B3	Y
+			FCB	$3D	X
+			FCB	$A7	Y
+			FCB	$3D	X
+			FCB	$8D	Y
+			FCB	$33	X
+			FCB	$77	Y
+			FCB	$14	X
+			FCB	$73	Y
+			FCB	$9	X
+			FCB	$65	Y
+			FCB	$8	X
+			FCB	$48	Y
+			FCB	$14	X
+			FCB	$32	Y
+			
+		9:	FCB	$3D	X
+			FCB	$A2	Y
+			FCB	$30	X
+			FCB	$BC	Y
+			FCB	$12	X
+			FCB	$BD	Y
+			FCB	$1	X
+			FCB	$A1	Y
+			FCB	$1	X
+			FCB	$86	Y
+			FCB	$11	X
+			FCB	$78	Y
+			FCB	$2F	X
+			FCB	$78	Y
+			FCB	$3C	X
+			FCB	$86	Y
+			FCB	$3B	X
+			FCB	$A3	Y
+			FCB	$3C	X
+			FCB	$34	Y

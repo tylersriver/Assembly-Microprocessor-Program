@@ -1,0 +1,89 @@
+***************************************************************
+*	Computer Systems										  *
+*	Char Loop 												  *
+*													 		  *
+*	Date: March 7, 2016										  *
+*	Authors: Tyler Sriver, Brad Browning					  *
+*															  *
+*	File: piaLoop.txt			   						      *
+*	Purpose: test main loop									  *
+***************************************************************
+
+*************************
+* Variable Declarations	*
+*************************
+XLOC		EQU			$D000			  * X Location for PIA
+YLOC		EQU			$D002			  * Y Location for PIA
+BIT2		EQU			%00000100		* Equate for bit-2
+
+LSRON		EQU			$A001		  	* Laser On Address
+LSROFF	EQU			$A000			  * Laser Off Address
+ON			EQU			$01				  * Laser On Code
+OFF			EQU			$00				  * Laser Off Code
+SDL			EQU			$02				  * Character end Code
+
+**********************
+* FCB For Characters *
+**********************
+		ORG			$F000
+		FCB			$9,$32,ON,$1F,$BE,$36,$32,OFF,$2C,$6F,ON,$13,$6D,OFF,SDL *A*
+
+*****************
+* Program Setup *
+*****************
+		ORG			$E000
+		LDS 		#$FF
+
+*************************
+* PIA initialization:	*
+*************************
+		LDX			#$D000
+		BCLR		1,x 	BIT2		* Clear bit-2
+		BSET		0,x 	$FF
+		BSET		1,x 	BIT2		* Set bit-2 in 1+(IX)
+		BCLR		3,x 	BIT2		* Clear bit-2
+		BSET		2,x 	$FF
+		BSET		3,x 	BIT2		* Set bit-2 in 3+(IX)
+
+***********************
+* Laser/PIA Test Mode *
+***********************
+LOOP
+				LDX			#$F000				* Load Start Location
+NXTPNT	LDAA		0,x
+
+				CMPA		#ON					* Test if ON Character
+				BNE			OFFTST
+				LDAA		LSRON
+				BRA			END
+
+OFFTST	CMPA		#OFF				* Test if OFF Character
+				BNE			SDLTST
+				LDAA		LSROFF
+				BRA			END
+
+SDLTST	CMPA		#SDL				* Test if end of Character
+				BNE			CHRSND
+				BRA			LOOP
+
+CHRSND	STAA		XLOC				* Send Points
+				INX
+				LDAA		0,x
+				STAA		YLOC
+				BRA			END
+
+END			INX
+				JSR			delay
+				BRA			NXTPNT
+
+***************
+* JSR - Delay *
+***************
+delay
+			LDY			#$3FF
+back	DEY
+			BGT			back
+			RTS
+
+			ORG			$FFFE
+			FDB			$E000

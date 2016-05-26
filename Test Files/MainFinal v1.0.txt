@@ -1,0 +1,227 @@
+***************************************************************
+*	Computer Systems										  *
+*	Main Final 												  *
+*													 		  *
+*	Date: March 7, 2016										  *
+*	Authors: Tyler Sriver | Brad Browning					  *
+*															  *
+*	File: MainFall.txt			   						      *
+*	Purpose: test main loop									  *
+***************************************************************
+
+*************************
+* Variable Declarations	*
+*************************
+XLOC		EQU			$D000			  * X Location for PIA
+YLOC		EQU			$D002			  * Y Location for PIA
+BIT2		EQU			%00000100		  * Equate for bit-2
+BIT7		EQU			%10000000		  * Equate for bit-7
+BIT5		EQU			%00100000		  * Equate for bit-5
+	
+LSRON		EQU			$A001		  	  * Laser On Address
+LSROFF		EQU			$A000			  * Laser Off Address
+ON			EQU			$01				  * Laser On Code
+OFF			EQU			$00				  * Laser Off Code
+SDL			EQU			$02				  * Character end Code
+
+CHAR1		EQU			$40
+CHAR2		EQU			$41
+CHAR3		EQU			$42
+CHAR4		EQU			$43
+
+MODE        EQU         $22
+
+**********************
+* FCB For Characters *
+**********************
+		ORG			$F000				  * LCD FCB
+		FCB			$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F,$50,$51,$52
+		
+		ORG			$F100
+		FCB			$9,$32,ON,$1F,$BE,$36,$32,OFF,$2C,$6F,ON,$13,$6D,OFF,SDL *A*
+
+*****************
+* Program Setup *
+*****************
+		ORG			$E000
+		LDS 		#$FF
+		CLI
+
+*************************
+* PIA initialization:	*
+*************************
+		LDX			#$D000
+		BCLR		1,x 	BIT2		* Clear bit-2
+		BSET		0,x 	$FF
+		BSET		1,x 	BIT2		* Set bit-2 in 1+(IX)
+		BCLR		3,x 	BIT2		* Clear bit-2
+		BSET		2,x 	$FF
+		BSET		3,x 	BIT2		* Set bit-2 in 3+(IX)
+		
+***********************
+* LCD Initialization: *
+***********************		
+		LDX	#$C000
+		
+		LDAA		#$01
+her1	BRSET		0,x	$80	her1
+		STAA		0,x
+		
+		LDAA		#$30
+her2	BRSET		0,x	$80	her2
+		STAA		0,x
+		
+		LDAA		#$08
+her3	BRSET		0,x	$80	her3
+		STAA		0,x
+	
+		LDAA		#$06
+her4	BRSET		0,x	$80	her4
+		STAA		0,x
+	
+		LDAA		#$3c
+her5	BRSET		0,x	$80	her5
+		STAA		0,x
+	
+		LDAA		#$0F
+her6	BRSET		0,x	$80	her6
+		STAA		0,x	
+		
+************************
+* Variable Delay Setup *
+************************
+		LDX			#$1039						* Power up A/D
+		BSET		0,x		BIT7
+		
+		JSR			delay
+		
+		LDX			#$1030						* Enable Scan Control
+		BSET		0,x		BIT5		
+
+***********************
+* Laser/PIA Test Mode *
+***********************
+                LDAA        #1                  * Set mode to 0
+				STAA		MODE
+                
+LOOP            LDAA        MODE                * Test if Mode 0
+                CMPA        #0
+                BNE         MODE1
+                
+MODE1           CMPA        #1                  * Test If mode 1           
+                BNE         MODE2
+
+         	    LDAA		#$00
+                STAA		XLOC
+                STAA		YLOC
+                JSR			delay
+
+                LDAA		#$00
+                STAA		XLOC
+                LDAA		#$FF
+                STAA		YLOC
+                JSR			delay
+
+                LDAA		#$FF
+                STAA		XLOC
+                STAA		YLOC
+                JSR			delay
+
+                LDAA		#$FF
+                STAA		XLOC
+                LDAA		#$00
+                STAA		YLOC
+                JSR			delay
+                BRA			LOOP				* End Mode 1
+                                
+                
+MODE2           CMPA        #2                  *Test if mode 2 
+                BNE         LOOP
+                
+				LDAB		#CHAR1				* Set laser to first character			
+				LDX			#$F100				* Load Start Location
+				
+NXTPNT			LDAA		0,x
+
+				CMPA		#ON					* Test if ON Character
+				BNE			OFFTST
+				LDAA		LSRON
+				BRA			END
+
+OFFTST			CMPA		#OFF				* Test if OFF Character
+				BNE			SDLTST
+				LDAA		LSROFF
+				BRA			END
+
+SDLTST			CMPA		#SDL				* Test if end of Character
+				BNE			CHRSND
+				CMPB		#CHAR4				* Test if end of all characters
+				BNE			NXTCHR
+				BRA			LOOP
+
+CHRSND			CMPB		#CHAR2				* Check if 2nd character
+				BNE			C3
+				ADDA		#64
+C3				CMPB		#CHAR3				* Check if 3rd character
+				BNE			C4
+				ADDA		#128
+C4				CMPB		#CHAR4				* Check if 4th character
+				BNE			SEND
+				ADDA		#192
+
+SEND			STAA		XLOC				* Send Points
+				INX
+				LDAA		0,x
+				STAA		YLOC
+				BRA			END
+
+END				INX								* Get ready for next point
+				JSR			delay
+				BRA			NXTPNT
+
+NXTCHR			INCB							*Setup for Next Char
+				JSR			delay
+				LDX			#$F100
+				BRA			NXTPNT          
+                                      
+                JMP         LOOP
+                    
+***************
+* JSR - Delay *
+***************
+delay
+		LDY			#$3FF
+back	DEY		 
+		BGT			back
+		RTS
+
+*****************************
+* Interrupt Service Routine *
+*****************************
+ISR			LDX			#$F000
+			LDAB		$B000
+			ANDB		#%00011111
+            
+            CMPB        #$12
+            BNE         SCHAR
+			LDAA		MODE
+			ADDA		#1
+			STAA		MODE
+            CMPA        #4
+            BLO         DONE
+            LDAA        #0
+			STAA		MODE
+            BRA         DONE
+            
+SCHAR		ABX
+			LDAA		0,X
+			STAA		$C001
+			
+DONE		RTI 
+                   
+
+				   
+			ORG	$FFF2
+			FDB	ISR
+			ORG	$FFFE
+			FDB	$E000

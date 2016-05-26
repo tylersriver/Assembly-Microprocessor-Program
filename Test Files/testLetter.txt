@@ -1,0 +1,90 @@
+***************************************************************
+*	Computer Systems										  *
+*	PIA Test												  *
+*													 		  *
+*	Date: March 7, 2016										  *			
+*	Authors: Tyler Sriver, Brad Browning					  *
+*															  *
+*	File: testLetter.txt									  *	
+*	Purpose: Tests PIA by drawing a box						  *
+***************************************************************
+	
+*************************
+* Variable Declarations	*
+*************************
+XLOC	EQU			$D000			* X Location for PIA
+YLOC	EQU			$D002			* Y Location for PIA
+BIT2	EQU			%00000100		* Equate for bit-2
+
+		ORG			$E000
+		LDS 		#$FF
+		
+*************************
+* PIA initialization:	*	
+*************************
+		LDX			#$D000
+		BCLR		1,x 	BIT2		* Clear bit-2
+		BSET		0,x 	$FF
+		BSET		1,x 	BIT2		* Set bit-2 in 1+(IX)
+		BCLR		3,x 	BIT2		* Clear bit-2
+		BSET		2,x 	$FF
+		BSET		3,x 	BIT2		* Set bit-2 in 3+(IX)
+
+***********************
+* Laser/PIA Test Mode *
+***********************
+LOOP 	LDAA		#$9
+		STAA		XLOC
+		LDAA		#$32
+		STAA		YLOC
+		JSR			delay
+		
+		LDAA		$A001
+		JSR			delay
+		
+		LDAA		#$1F
+		STAA		XLOC
+		LDAA		#$BE
+		STAA		YLOC
+		JSR			delay
+		
+		LDAA		#$36
+		STAA		XLOC
+		LDAA		#$32
+		STAA		YLOC
+		JSR			delay
+		
+		LDAA		$A000
+		JSR			delay
+		
+		LDAA		#$2C
+		STAA		XLOC
+		LDAA		#$6F
+		STAA		YLOC
+		JSR			delay
+		
+		LDAA		$A001
+		JSR			delay
+		
+		LDAA		#$13
+		STAA		XLOC
+		LDAA		#$6D
+		STAA		YLOC
+		JSR			delay
+		
+		LDAA		$A000
+		JSR			delay
+		
+		BRA			LOOP
+
+***************
+* JSR - Delay *
+***************
+delay
+		LDX			#$3FF
+back	DEX		 
+		BGT			back
+		RTS
+		
+		ORG			$FFFE
+		FDB			$E000

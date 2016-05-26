@@ -1,0 +1,22 @@
+***************************************************************
+*	Computer Systems										  *
+*	Memory Test												  *
+*													 		  *
+*	Date: March 2, 2016										  *			
+*	Authors: Tyler Sriver, Brad Browning					  *
+*															  *
+*	File: zeroOneTest.txt									  *	
+*	Purpose: cycles 0 and 1 in least significant bit of F000  *
+***************************************************************
+
+	ORG	$E000
+
+repeat	LDAA	$F000
+		LDAA	$F001
+
+		BRA	repeat
+
+		ORG	$F000
+		FCB	$55,$AA
+		ORG	$FFFE
+		FDB	$E000

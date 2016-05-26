@@ -1,0 +1,52 @@
+***************************************************************
+*	Computer Systems										  *
+*	LCD Test												  *
+*													 		  *
+*	Date: March 2, 2016										  *			
+*	Authors: Tyler Sriver, Brad Browning					  *
+*															  *
+*	File: DisplayTest.txt									  *	
+*	Purpose: Initializes LCD and Displays "HI" 				  *
+***************************************************************
+
+	ORG	$E000
+	
+***********************
+* LCD Initialization: *
+***********************
+	LDX	#$C000
+		
+		LDAA	#$01
+her1	BRSET	0,x	$80	her1
+		STAA	0,x		
+		LDAA	#$30
+her2	BRSET	0,x	$80	her2
+		STAA	0,x		
+		LDAA	#$08
+her3	BRSET	0,x	$80	her3
+		STAA	0,x	
+		LDAA	#$06
+her4	BRSET	0,x	$80	her4
+		STAA	0,x		
+		LDAA	#$3c
+her5	BRSET	0,x	$80	her5
+		STAA	0,x	
+		LDAA	#$0F
+her6	BRSET	0,x	$80	her6
+		STAA	0,x	
+
+****************
+* Display Code *
+****************
+
+her7	BRSET	0,x	$80	her7
+		LDAA	#$48
+		STAA	1,x
+
+her8	BRSET	0,x	$80	her8
+		LDAA	#$49	
+		STAA	1,X
+
+SPIN	BRA	SPIN	
+		ORG	$FFFE
+		FDB	$E000
