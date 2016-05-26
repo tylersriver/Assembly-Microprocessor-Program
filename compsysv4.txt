@@ -1,12 +1,12 @@
 *****************************************************************
-*	Computer Systems					*
-*	Main Final 						*
-*								*
-*	Date: March 17, 2016					*
-*	Authors: Tyler Sriver | Brad Browning			*
-*								*
-*	File: compsysv4.txt			   		*
-*	Purpose: test main loop					*
+*	Computer Systems											*
+*	Main Final 													*
+*																*
+*	Date: March 17, 2016										*
+*	Authors: Tyler Sriver | Brad Browning						*
+*																*
+*	File: compsysv4.txt			   								*
+*	Purpose: test main loop										*
 *****************************************************************
 
 *************************
@@ -20,21 +20,21 @@ BIT5		EQU			%00100000		  * Equate for bit-5
 	
 LSRON		EQU			$A001		  	  * Laser On Address
 LSROFF		EQU			$A000			  * Laser Off Address
-ON			EQU			$01				  * Laser On Code
-OFF			EQU			$00				  * Laser Off Code
-SDL			EQU			$02				  * Character end Code
+ON		EQU			$01				  * Laser On Code
+OFF		EQU			$00				  * Laser Off Code
+SDL		EQU			$02				  * Character end Code
 
 CHAR1		EQU			$40
 CHAR2		EQU			$41
 CHAR3		EQU			$42
 CHAR4		EQU			$43
 
-DISP1       EQU         $50             
-DISP2       EQU         $52
-DISP3       EQU         $54
-DISP4       EQU         $56
+DISP1   	EQU         		$50             
+DISP2		EQU         		$52
+DISP3      	EQU         		$54
+DISP4      	EQU         		$56
 
-MODE        EQU         $22
+MODE		EQU			$22
 SHFT		EQU			$20
 OFFST		EQU			$24
 
@@ -51,42 +51,42 @@ OFFST		EQU			$24
 		
 		ORG			$F100   
 		FCB			$9,$32,ON,$1F,$BE,$36,$32,OFF,$2C,$6F,ON,$13,$6D,OFF,SDL 
-        ORG         $F140   
-        FCB	        $A,$32,ON,$A,$BD,$26,$BD,$33,$B2,$34,$8C,$28,$77,$B,$76,$28,$75,$33,$60,$33,$3E,$2A,$32,$C,$32,OFF,SDL	
-		ORG         $F180   
-		FCB     	$39,$32,ON,$21,$32,$9,$5A,$A,$92,$1E,$BD,$39,$BD,OFF,SDL	
+		ORG         		$F140   
+        	FCB	        	$A,$32,ON,$A,$BD,$26,$BD,$33,$B2,$34,$8C,$28,$77,$B,$76,$28,$75,$33,$60,$33,$3E,$2A,$32,$C,$32,OFF,SDL	
+		ORG         		$F180   
+		FCB     		$39,$32,ON,$21,$32,$9,$5A,$A,$92,$1E,$BD,$39,$BD,OFF,SDL	
         ORG         $F1C0   
-		FCB	        $9,$32,ON,$9,$BD,$22,$B6,$37,$A4,$37,$4B,$24,$37,$9,$31,OFF,SDL	
+		FCB	        	$9,$32,ON,$9,$BD,$22,$B6,$37,$A4,$37,$4B,$24,$37,$9,$31,OFF,SDL	
         ORG         $F200   
-		FCB	        $9,$32,ON,$9,$BB,$3A,$BB,$9,$BB,$A,$72,$3B,$72,$A,$71,$9,$32,$3A,$32,OFF,SDL	
+		FCB	        	$9,$32,ON,$9,$BB,$3A,$BB,$9,$BB,$A,$72,$3B,$72,$A,$71,$9,$32,$3A,$32,OFF,SDL	
         ORG         $F240   
-		FCB	        $9,$32,ON,$9,$BD,$3B,$BD,$A,$BC,$9,$81,$29,$81,OFF,SDL	
+		FCB	        	$9,$32,ON,$9,$BD,$3B,$BD,$A,$BC,$9,$81,$29,$81,OFF,SDL	
         ORG         $F280   
-		FCB	        $2F,$BD,ON,$9,$BD,$8,$32,$38,$32,$39,$6D,$1E,$6D,OFF,SDL	
+		FCB		 	$2F,$BD,ON,$9,$BD,$8,$32,$38,$32,$39,$6D,$1E,$6D,OFF,SDL	
         ORG         $F2C0   	
-		FCB	        $7,$32,ON,$7,$BD,$7,$72,$3A,$71,$3A,$BD,$3A,$32,OFF,SDL		
+		FCB	        	$7,$32,ON,$7,$BD,$7,$72,$3A,$71,$3A,$BD,$3A,$32,OFF,SDL		
         ORG         $F300	
-		FCB	        $7,$32,ON,$39,$32,$1E,$32,$1E,$BE,$6,$BE,$39,$BE,OFF,SDL
+		FCB	        	$7,$32,ON,$39,$32,$1E,$32,$1E,$BE,$6,$BE,$39,$BE,OFF,SDL
         ORG         $F340   	
-		FCB	        $7,$BD,ON,$3A,$BD,$21,$BD,$21,$45,$1B,$32,$C,$33,$7,$46,$6,$5A,OFF,SDL
+		FCB	        	$7,$BD,ON,$3A,$BD,$21,$BD,$21,$45,$1B,$32,$C,$33,$7,$46,$6,$5A,OFF,SDL
         ORG         $F380   
-		FCB	        $7,$32,ON,$7,$BD,$7,$77,$39,$BC,$7,$77,$3A,$33,OFF,SDL	
+		FCB	        	$7,$32,ON,$7,$BD,$7,$77,$39,$BC,$7,$77,$3A,$33,OFF,SDL	
         ORG         $F3C0   
-		FCB	        $7,$BD,ON,$6,$32,$3A,$32,OFF,SDL	
+		FCB	        	$7,$BD,ON,$6,$32,$3A,$32,OFF,SDL	
         ORG         $F400   	
-		FCB	        $6,$32,ON,$E,$BE,$20,$81,$32,$BD,$3B,$32,OFF,SDL	
+		FCB	        	$6,$32,ON,$E,$BE,$20,$81,$32,$BD,$3B,$32,OFF,SDL	
         ORG         $F440   
-		FCB	        $6,$32,ON,$7,$BF,$36,$32,$36,$BF,OFF,SDL	
+		FCB	        	$6,$32,ON,$7,$BF,$36,$32,$36,$BF,OFF,SDL	
         ORG         $F480	
-		FCB	        $2F,$32,ON,$10,$32,$6,$59,$6,$9F,$12,$BC,$30,$BD,$39,$9F,$39,$59,$2F,$32,OFF,SDL	
+		FCB	        	$2F,$32,ON,$10,$32,$6,$59,$6,$9F,$12,$BC,$30,$BD,$39,$9F,$39,$59,$2F,$32,OFF,SDL	
         ORG         $F4C0	
-		FCB	        $7,$32,ON,$6,$BD,$25,$BE,$35,$AB,$36,$8B,$28,$78,$8,$76,OFF,SDL	
+		FCB	        	$7,$32,ON,$6,$BD,$25,$BE,$35,$AB,$36,$8B,$28,$78,$8,$76,OFF,SDL	
         ORG         $F500   	
-		FCB	        $39,$43,ON,$36,$31,$18,$2F,$18,$3B,$2B,$40,$37,$66,$36,$A0,$2C,$B1,$1C,$BA,$9,$AD,$6,$6B,$8,$49,$18,$3B,OFF,SDL	
+		FCB	        	$39,$43,ON,$36,$31,$18,$2F,$18,$3B,$2B,$40,$37,$66,$36,$A0,$2C,$B1,$1C,$BA,$9,$AD,$6,$6B,$8,$49,$18,$3B,OFF,SDL	
         ORG         $F540   	
-		FCB	        $7,$32,ON,$6,$BD,$1B,$BC,$2C,$B3,$35,$A4,$36,$8C,$2D,$78,$1F,$6E,$8,$6D,$3B,$32,OFF,SDL	
+		FCB	        	$7,$32,ON,$6,$BD,$1B,$BC,$2C,$B3,$35,$A4,$36,$8C,$2D,$78,$1F,$6E,$8,$6D,$3B,$32,OFF,SDL	
         ORG         $F580    	
-		FCB	        $36,$BD,ON,$16,$BB,$A,$AD,$7,$94,$F,$78,$22,$75,$35,$69,$35,$58,$36,$40,$29,$37,$17,$33,$A,$33,OFF,SDL	
+		FCB	        	$36,$BD,ON,$16,$BB,$A,$AD,$7,$94,$F,$78,$22,$75,$35,$69,$35,$58,$36,$40,$29,$37,$17,$33,$A,$33,OFF,SDL	
         ORG         $F5C0	
 		FCB	        $1F,$32,ON,$1E,$BD,$2,$BD,$3A,$BD,OFF,SDL	
         ORG         $F600   	
