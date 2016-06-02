@@ -1,12 +1,12 @@
 *****************************************************************
-*	Computer Systems											*
-*	Main Final 													*
-*																*
-*	Date: March 17, 2016										*
-*	Authors: Tyler Sriver | Brad Browning						*
-*																*
-*	File: compsysv4.txt			   								*
-*	Purpose: test main loop										*
+*	Computer Systems					*
+*	Main Final 						*
+*								*
+*	Date: March 17, 2016					*
+*	Authors: Tyler Sriver | Brad Browning			*
+*								*
+*	File: compsysv4.txt			   		*
+*	Purpose: test main loop					*
 *****************************************************************
 
 *************************
