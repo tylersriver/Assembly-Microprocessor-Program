@@ -19,8 +19,8 @@ BIT2        EQU        %00000100        * Equate for bit-2
 BIT7        EQU        %10000000        * Equate for bit-7
 BIT5        EQU        %00100000        * Equate for bit-5
 
-LSRON		EQU        $A001            * Laser On Address
-LSROFF		EQU        $A000            * Laser Off Address
+LSRON       EQU        $A001            * Laser On Address
+LSROFF      EQU        $A000            * Laser Off Address
 ON          EQU        $01              * Laser On Code
 OFF         EQU        $00              * Laser Off Code
 SDL         EQU        $02              * Character end Code
@@ -43,86 +43,86 @@ OFFST        EQU        $24
   FCB FOR CHARACTERS
 *****************************************************************
 
-        ORG		$FC00
-        FCB	    $7,$9,ON,$6,$FA,$FA,$F9,$FA,$9,$14,$9,$14,$EB,$ED,$ED,$F1,$12,$24,$14,$24,$DC,$DE,$DD,$DD,$20,$30,$24,$2F,$CA,$C7,$CB,$C7,$3C,$3F,$3B,$40,$B4,$B4,$B3,$B5,$4F,$54,$50,$50,$A1,$A5,$A1,$A4,$62,$64,$63,$62,$91,$92,$91,$93,$73,$71,$72,$71,$8A,$85,$8A,$85,$7E,OFF,SDL
+        ORG        $FC00
+        FCB        $7,$9,ON,$6,$FA,$FA,$F9,$FA,$9,$14,$9,$14,$EB,$ED,$ED,$F1,$12,$24,$14,$24,$DC,$DE,$DD,$DD,$20,$30,$24,$2F,$CA,$C7,$CB,$C7,$3C,$3F,$3B,$40,$B4,$B4,$B3,$B5,$4F,$54,$50,$50,$A1,$A5,$A1,$A4,$62,$64,$63,$62,$91,$92,$91,$93,$73,$71,$72,$71,$8A,$85,$8A,$85,$7E,OFF,SDL
 
-        ORG		$F000	* LCD FCB *
-        FCB		$41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F,$50,$51,$52
-        ORG		$F020
-        FCB		$53,$54,$55,$56,$57,$58,$59,$5A,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39
+        ORG        $F000    * LCD FCB *
+        FCB        $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F,$50,$51,$52
+        ORG        $F020
+        FCB        $53,$54,$55,$56,$57,$58,$59,$5A,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39
 
-        ORG		$F100
-        FCB		$9,$32,ON,$1F,$BE,$36,$32,OFF,$2C,$6F,ON,$13,$6D,OFF,SDL
-        ORG     $F140
-        FCB	    $A,$32,ON,$A,$BD,$26,$BD,$33,$B2,$34,$8C,$28,$77,$B,$76,$28,$75,$33,$60,$33,$3E,$2A,$32,$C,$32,OFF,SDL
-        ORG     $F180
-        FCB     $39,$32,ON,$21,$32,$9,$5A,$A,$92,$1E,$BD,$39,$BD,OFF,SDL
-        ORG     $F1C0
-        FCB	    $9,$32,ON,$9,$BD,$22,$B6,$37,$A4,$37,$4B,$24,$37,$9,$31,OFF,SDL
-        ORG     $F200
-        FCB	    $9,$32,ON,$9,$BB,$3A,$BB,$9,$BB,$A,$72,$3B,$72,$A,$71,$9,$32,$3A,$32,OFF,SDL
-        ORG     $F240
-        FCB	    $9,$32,ON,$9,$BD,$3B,$BD,$A,$BC,$9,$81,$29,$81,OFF,SDL
-        ORG     $F280
-        FCB		$2F,$BD,ON,$9,$BD,$8,$32,$38,$32,$39,$6D,$1E,$6D,OFF,SDL
-        ORG     $F2C0
-        FCB	    $7,$32,ON,$7,$BD,$7,$72,$3A,$71,$3A,$BD,$3A,$32,OFF,SDL
-        ORG     $F300
-        FCB	    $7,$32,ON,$39,$32,$1E,$32,$1E,$BE,$6,$BE,$39,$BE,OFF,SDL
-        ORG     $F340
-        FCB	    $7,$BD,ON,$3A,$BD,$21,$BD,$21,$45,$1B,$32,$C,$33,$7,$46,$6,$5A,OFF,SDL
-        ORG     $F380
-        FCB	    $7,$32,ON,$7,$BD,$7,$77,$39,$BC,$7,$77,$3A,$33,OFF,SDL
-        ORG     $F3C0
-        FCB	    $7,$BD,ON,$6,$32,$3A,$32,OFF,SDL
-        ORG     $F400
-        FCB	    $6,$32,ON,$E,$BE,$20,$81,$32,$BD,$3B,$32,OFF,SDL
-        ORG     $F440
-        FCB	    $6,$32,ON,$7,$BF,$36,$32,$36,$BF,OFF,SDL
-        ORG     $F480
-        FCB	    $2F,$32,ON,$10,$32,$6,$59,$6,$9F,$12,$BC,$30,$BD,$39,$9F,$39,$59,$2F,$32,OFF,SDL
-        ORG     $F4C0
-        FCB	    $7,$32,ON,$6,$BD,$25,$BE,$35,$AB,$36,$8B,$28,$78,$8,$76,OFF,SDL
-        ORG     $F500
-        FCB	    $39,$43,ON,$36,$31,$18,$2F,$18,$3B,$2B,$40,$37,$66,$36,$A0,$2C,$B1,$1C,$BA,$9,$AD,$6,$6B,$8,$49,$18,$3B,OFF,SDL
-        ORG     $F540
-        FCB	    $7,$32,ON,$6,$BD,$1B,$BC,$2C,$B3,$35,$A4,$36,$8C,$2D,$78,$1F,$6E,$8,$6D,$3B,$32,OFF,SDL
-        ORG     $F580
-        FCB	    $36,$BD,ON,$16,$BB,$A,$AD,$7,$94,$F,$78,$22,$75,$35,$69,$35,$58,$36,$40,$29,$37,$17,$33,$A,$33,OFF,SDL
-        ORG     $F5C0
-        FCB	    $1F,$32,ON,$1E,$BD,$2,$BD,$3A,$BD,OFF,SDL
-        ORG     $F600
-        FCB	    $6,$BD,ON,$6,$8A,$6,$64,$8,$50,$B,$3E,$18,$35,$29,$35,$37,$3F,$39,$56,$3B,$8D,$3B,$BE,OFF,SDL
-        ORG     $F640
-        FCB	    $6,$BD,ON,$1F,$32,$3A,$BE,OFF,SDL
-        FCB     $F680
-        FCB	    $4,$BF,ON,$A,$32,$1F,$65,$33,$31,$3A,$BE,OFF,SDL
-        ORG     $F6C0
-        FCB	    $2,$32,ON,$3C,$BD,$1F,$77,$5,$BD,$39,$32,OFF,SDL
-        ORG     $F700
-        FCB	    $1E,$32,ON,$1E,$82,$3,$BC,$1E,$81,$3A,$BE,OFF,SDL
-        ORG     $F740
-        FCB	    $3A,$32,ON,$4,$32,$3A,$BD,$4,$BD,OFF,SDL
-        ORG     $F780
-        FCB	    $2E,$BF,ON,$D,$BD,$5,$B9,$1,$AC,$1,$46,$1,$36,$A,$33,$17,$32,$21,$31,$2F,$31,$3B,$38,$3C,$61,$3C,$81,$3C,$B3,$34,$BC,$30,$BD,$37,$B9,$3,$34,OFF,SDL
-        ORG     $F7C0
-        FCB	    $8,$A7,ON,$1F,$BD,$1F,$32,$6,$32,$36,$32,OFF,SDL
-        ORG     $F800
-        FCB	    $3C,$33,ON,$1,$32,$36,$8F,$3C,$A3,$3C,$B5,$32,$BB,$27,$BC,$1C,$BB,$15,$B9,$10,$B3,$D,$AE,$9,$A9,$6,$A4,$5,$9F,$3,$9A,OFF,SDL
-        ORG     $F840
-        FCB	    $1,$BC,ON,$3C,$BD,$2,$81,$28,$81,$31,$7E,$37,$76,$3B,$6E,$3D,$62,$3C,$55,$3C,$4B,$3A,$42,$34,$33,$28,$32,$3,$32,OFF,SDL
-        ORG     $F880
-        FCB	    $36,$32,ON,$36,$BC,$1,$81,$3C,$81,OFF,SDL
-        ORG     $F8C0
-        FCB	    $39,$BD,ON,$7,$BD,$7,$78,$1C,$77,$2F,$72,$37,$5B,$33,$3B,$21,$32,$5,$31,OFF,SDL
-        ORG     $F900
-        FCB	    $3C,$BD,ON,$9,$B3,$5,$31,$38,$31,$39,$6F,$7,$6F,OFF,SDL
-        ORG     $F940
-        FCB	    $1,$B3,ON,$1,$BD,$1F,$BD,$16,$34,$1B,$78,$29,$79,$B,$78,OFF,SDL
-        ORG     $F980
-        FCB	    $14,$32,ON,$2B,$32,$3A,$40,$3D,$64,$33,$74,$15,$75,$D,$87,$D,$A7,$1B,$B3,$32,$B3,$3D,$A7,$3D,$8D,$33,$77,$14,$73,$9,$65,$8,$48,$14,$32,OFF,SDL
-        ORG     $F9C0
-        FCB	    $3D,$A2,ON,$30,$BC,$12,$BD,$1,$A1,$1,$86,$11,$78,$2F,$78,$3C,$86,$3B,$A3,$3C,$34,OFF,SDL
+        ORG        $F100
+        FCB        $9,$32,ON,$1F,$BE,$36,$32,OFF,$2C,$6F,ON,$13,$6D,OFF,SDL
+        ORG        $F140
+        FCB        $A,$32,ON,$A,$BD,$26,$BD,$33,$B2,$34,$8C,$28,$77,$B,$76,$28,$75,$33,$60,$33,$3E,$2A,$32,$C,$32,OFF,SDL
+        ORG        $F180
+        FCB        $39,$32,ON,$21,$32,$9,$5A,$A,$92,$1E,$BD,$39,$BD,OFF,SDL
+        ORG        $F1C0
+        FCB        $9,$32,ON,$9,$BD,$22,$B6,$37,$A4,$37,$4B,$24,$37,$9,$31,OFF,SDL
+        ORG        $F200
+        FCB        $9,$32,ON,$9,$BB,$3A,$BB,$9,$BB,$A,$72,$3B,$72,$A,$71,$9,$32,$3A,$32,OFF,SDL
+        ORG        $F240
+        FCB        $9,$32,ON,$9,$BD,$3B,$BD,$A,$BC,$9,$81,$29,$81,OFF,SDL
+        ORG        $F280
+        FCB        $2F,$BD,ON,$9,$BD,$8,$32,$38,$32,$39,$6D,$1E,$6D,OFF,SDL
+        ORG        $F2C0
+        FCB        $7,$32,ON,$7,$BD,$7,$72,$3A,$71,$3A,$BD,$3A,$32,OFF,SDL
+        ORG        $F300
+        FCB        $7,$32,ON,$39,$32,$1E,$32,$1E,$BE,$6,$BE,$39,$BE,OFF,SDL
+        ORG        $F340
+        FCB        $7,$BD,ON,$3A,$BD,$21,$BD,$21,$45,$1B,$32,$C,$33,$7,$46,$6,$5A,OFF,SDL
+        ORG        $F380
+        FCB        $7,$32,ON,$7,$BD,$7,$77,$39,$BC,$7,$77,$3A,$33,OFF,SDL
+        ORG        $F3C0
+        FCB        $7,$BD,ON,$6,$32,$3A,$32,OFF,SDL
+        ORG        $F400
+        FCB        $6,$32,ON,$E,$BE,$20,$81,$32,$BD,$3B,$32,OFF,SDL
+        ORG        $F440
+        FCB        $6,$32,ON,$7,$BF,$36,$32,$36,$BF,OFF,SDL
+        ORG        $F480
+        FCB        $2F,$32,ON,$10,$32,$6,$59,$6,$9F,$12,$BC,$30,$BD,$39,$9F,$39,$59,$2F,$32,OFF,SDL
+        ORG        $F4C0
+        FCB        $7,$32,ON,$6,$BD,$25,$BE,$35,$AB,$36,$8B,$28,$78,$8,$76,OFF,SDL
+        ORG        $F500
+        FCB        $39,$43,ON,$36,$31,$18,$2F,$18,$3B,$2B,$40,$37,$66,$36,$A0,$2C,$B1,$1C,$BA,$9,$AD,$6,$6B,$8,$49,$18,$3B,OFF,SDL
+        ORG        $F540
+        FCB        $7,$32,ON,$6,$BD,$1B,$BC,$2C,$B3,$35,$A4,$36,$8C,$2D,$78,$1F,$6E,$8,$6D,$3B,$32,OFF,SDL
+        ORG        $F580
+        FCB        $36,$BD,ON,$16,$BB,$A,$AD,$7,$94,$F,$78,$22,$75,$35,$69,$35,$58,$36,$40,$29,$37,$17,$33,$A,$33,OFF,SDL
+        ORG        $F5C0
+        FCB        $1F,$32,ON,$1E,$BD,$2,$BD,$3A,$BD,OFF,SDL
+        ORG        $F600
+        FCB        $6,$BD,ON,$6,$8A,$6,$64,$8,$50,$B,$3E,$18,$35,$29,$35,$37,$3F,$39,$56,$3B,$8D,$3B,$BE,OFF,SDL
+        ORG        $F640
+        FCB        $6,$BD,ON,$1F,$32,$3A,$BE,OFF,SDL
+        FCB        $F680
+        FCB        $4,$BF,ON,$A,$32,$1F,$65,$33,$31,$3A,$BE,OFF,SDL
+        ORG        $F6C0
+        FCB        $2,$32,ON,$3C,$BD,$1F,$77,$5,$BD,$39,$32,OFF,SDL
+        ORG        $F700
+        FCB        $1E,$32,ON,$1E,$82,$3,$BC,$1E,$81,$3A,$BE,OFF,SDL
+        ORG        $F740
+        FCB        $3A,$32,ON,$4,$32,$3A,$BD,$4,$BD,OFF,SDL
+        ORG        $F780
+        FCB        $2E,$BF,ON,$D,$BD,$5,$B9,$1,$AC,$1,$46,$1,$36,$A,$33,$17,$32,$21,$31,$2F,$31,$3B,$38,$3C,$61,$3C,$81,$3C,$B3,$34,$BC,$30,$BD,$37,$B9,$3,$34,OFF,SDL
+        ORG        $F7C0
+        FCB        $8,$A7,ON,$1F,$BD,$1F,$32,$6,$32,$36,$32,OFF,SDL
+        ORG        $F800
+        FCB        $3C,$33,ON,$1,$32,$36,$8F,$3C,$A3,$3C,$B5,$32,$BB,$27,$BC,$1C,$BB,$15,$B9,$10,$B3,$D,$AE,$9,$A9,$6,$A4,$5,$9F,$3,$9A,OFF,SDL
+        ORG        $F840
+        FCB        $1,$BC,ON,$3C,$BD,$2,$81,$28,$81,$31,$7E,$37,$76,$3B,$6E,$3D,$62,$3C,$55,$3C,$4B,$3A,$42,$34,$33,$28,$32,$3,$32,OFF,SDL
+        ORG        $F880
+        FCB        $36,$32,ON,$36,$BC,$1,$81,$3C,$81,OFF,SDL
+        ORG        $F8C0
+        FCB        $39,$BD,ON,$7,$BD,$7,$78,$1C,$77,$2F,$72,$37,$5B,$33,$3B,$21,$32,$5,$31,OFF,SDL
+        ORG        $F900
+        FCB        $3C,$BD,ON,$9,$B3,$5,$31,$38,$31,$39,$6F,$7,$6F,OFF,SDL
+        ORG        $F940
+        FCB        $1,$B3,ON,$1,$BD,$1F,$BD,$16,$34,$1B,$78,$29,$79,$B,$78,OFF,SDL
+        ORG        $F980
+        FCB        $14,$32,ON,$2B,$32,$3A,$40,$3D,$64,$33,$74,$15,$75,$D,$87,$D,$A7,$1B,$B3,$32,$B3,$3D,$A7,$3D,$8D,$33,$77,$14,$73,$9,$65,$8,$48,$14,$32,OFF,SDL
+        ORG        $F9C0
+        FCB        $3D,$A2,ON,$30,$BC,$12,$BD,$1,$A1,$1,$86,$11,$78,$2F,$78,$3C,$86,$3B,$A3,$3C,$34,OFF,SDL
 
 *****************************************************************
  PROGRAM SETUP
@@ -237,14 +237,14 @@ MODE1   CMPA        #1                  * TEST IF MODE 1
 
         LDAA        LSROFF
 
-        BRA        LOOP        * END MODE 1
+        BRA        LOOP                 * END MODE 1
 
 
-MODE2	CMPA        	#2		*Test if mode 2
+MODE2   CMPA        #2                  * TEST IF MODE 2
         BNE     	MODE3
 
-	LDAB		#CHAR1		* Set laser to first character
-	LDX		DISP1    	* Load Start Location
+        LDAB        #CHAR1              * SET LASER TO FIRST CHARACTER
+        LDX         DISP1               * LOAD START LOCATION
 
 NXTPNT	LDAA		0,x
 
