@@ -1,6 +1,6 @@
 *****************************************************************
 *	Computer Systems					*
-*	Main Final 						*
+*	Main - Final 						*
 *								*
 *	Date: March 17, 2016					*
 *	Authors: Tyler Sriver | Brad Browning			*
