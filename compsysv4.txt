@@ -246,78 +246,78 @@ MODE2   CMPA        #2                  * TEST IF MODE 2
         LDAB        #CHAR1              * SET LASER TO FIRST CHARACTER
         LDX         DISP1               * LOAD START LOCATION
 
-NXTPNT	LDAA		0,x
+NXTPNT  LDAA        0,x
 
-	CMPA		#ON		* Test if ON Character
-	BNE		OFFTST
-	LDAA		LSRON
-	BRA		END
+        CMPA        #ON                 * Test IF "ON" CHARACTER
+        BNE         OFFTST
+        LDAA        LSRON
+        BRA         END
 
-OFFTST	CMPA		#OFF		* Test if OFF Character
-	BNE		SDLTST
-	LDAA		LSROFF
-	BRA		END
+OFFTST  CMPA        #OFF                * TEST IF "OFF" CHARACTER
+        BNE         SDLTST
+        LDAA        LSROFF
+        BRA         END
 
-SDLTST	CMPA		#SDL		* Test if end of Character
-	BNE		CHRSND
-	CMPB		#CHAR4		* Test if end of all characters
-	BNE		NXTCHR
-	BRA		LOOP
+SDLTST  CMPA        #SDL                * TEST IF END OF CHARACTER
+        BNE         CHRSND
+        CMPB        #CHAR4              * TEST IF END OF ALL CHARACTERS
+        BNE         NXTCHR
+        BRA         LOOP
 
-CHRSND	CMPB		#CHAR2		* Check if 2nd character
-	BNE		C3
-	ADDA		#64
-C3	CMPB		#CHAR3		* Check if 3rd character
-	BNE		C4
-	ADDA		#128
-C4	CMPB		#CHAR4		* Check if 4th character
-	BNE		SEND
-	ADDA		#192
+CHRSND  CMPB        #CHAR2              * CHECK IF 2ND CHARACTER
+        BNE         C3
+        ADDA        #64
+C3      CMPB        #CHAR3              * CHECK IF 3RD CHARACTER
+        BNE         C4
+        ADDA        #128
+C4      CMPB        #CHAR4              * CHECK IF 4TH CHARACTER
+        BNE         SEND
+        ADDA        #192
 
-SEND	STAA		XLOC		* Send Points
-	INX
-	LDAA		0,x
-	STAA		YLOC
-	BRA		END
+SEND    STAA        XLOC                * SEND POINTS
+        INX
+        LDAA        0,x
+        STAA        YLOC
+        BRA         END
 
-END	INX				* Get ready for next point
-	JSR		delay
-	BRA		NXTPNT
+END     INX                             * GET READY FOR NEXT POINT
+        JSR        delay
+        BRA        NXTPNT
 
-NXTCHR	INCB				* Setup for Next Char
-	CMPB    	 #CHAR2
-        BNE         	CH3
-        LDX         	DISP2
-	BRA		NXTPNT
-CH3	CMPB        	#CHAR3
-        BNE         	CH4
-        LDX         	DISP3
-        BRA         	NXTPNT
-CH4	LDX         	DISP4
-	JSR		delay
-        BRA         	NXTPNT
+NXTCHR  INCB                            * SETUP FOR NEXT CHAR
+        CMPB        #CHAR2
+        BNE         CH3
+        LDX         DISP2
+        BRA         NXTPNT
+CH3     CMPB        #CHAR3
+        BNE         CH4
+        LDX         DISP3
+        BRA         NXTPNT
+CH4     LDX         DISP4
+        JSR         delay
+        BRA         NXTPNT
 
-MODE3	CMPA		#3
-	BNE		LPEND
+MODE    CMPA        #3
+        BNE         LPEND
 
-	LDX		#$FC00				* Load Start Location
-NXTPNT2	LDAA		0,x
+        LDX         #$FC00              * LOAD START LOCATION
+NXTPNT2	LDAA        0,x
 
-	CMPA		#ON				* Test if ON Character
-	BNE		OFFTST2
-	LDAA		LSRON
-	BRA		END2
+        CMPA        #ON                 * TEST IF "ON" CHARACTER
+        BNE         OFFTST2
+        LDAA        LSRON
+        BRA         END2
 
-OFFTST2	CMPA		#OFF				* Test if OFF Character
-	BNE		SDLTST2
-	LDAA		LSROFF
-	BRA		END2
+OFFTST2 CMPA        #OFF                * Test if OFF Character
+        BNE         SDLTST2
+        LDAA        LSROFF
+        BRA         END2
 
-SDLTST2	CMPA		#SDL				* Test if end of Character
-	BNE		CHRSND2
-	BRA		LPEND
+SDLTST2 CMPA        #SDL                * Test if end of Character
+        BNE         CHRSND2
+        BRA         LPEND
 
-CHRSND2	STAA		XLOC				* Send Points
+CHRSND2 STAA        XLOC                * Send Points
 	INX
 	LDAA		0,x
 	STAA		YLOC
