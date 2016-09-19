@@ -6,12 +6,13 @@
 *	Authors: Tyler Sriver | Brad Browning			*
 *								*
 *	File: compsysv4.txt			   		*
-*	Purpose: test main loop					*
+*	Purpose: main program					*
 *****************************************************************
 
 *************************
-* Variable Declarations	*
+  Variable Declarations	
 *************************
+
 XLOC		EQU		$D000			  * X Location for PIA
 YLOC		EQU		$D002			  * Y Location for PIA
 BIT2		EQU		%00000100		  * Equate for bit-2
@@ -39,8 +40,9 @@ SHFT		EQU		$20
 OFFST		EQU		$24
 
 **********************
-* FCB For Characters *
+  FCB For Characters 
 **********************
+
 	ORG		$FC00
 	FCB		$7,$9,ON,$6,$FA,$FA,$F9,$FA,$9,$14,$9,$14,$EB,$ED,$ED,$F1,$12,$24,$14,$24,$DC,$DE,$DD,$DD,$20,$30,$24,$2F,$CA	,$C7,$CB,$C7,$3C,$3F,$3B,$40,$B4,$B4,$B3,$B5,$4F,$54,$50,$50,$A1,$A5,$A1,$A4,$62,$64,$63,$62,$91,$92,$91,$93,$73,$71,$72,$71,$8A,$85,$8A,$85,$7E,OFF,SDL
 	 		
@@ -123,16 +125,18 @@ OFFST		EQU		$24
 	FCB	        $3D,$A2,ON,$30,$BC,$12,$BD,$1,$A1,$1,$86,$11,$78,$2F,$78,$3C,$86,$3B,$A3,$3C,$34,OFF,SDL
 
 *****************
-* Program Setup *
+  Program Setup 
 *****************
+
 	ORG		$E000
 	LDS 		#$FF
 	CLI
 	
 		
 *************************
-* PIA initialization:	*
+  PIA initialization:	
 *************************
+
 	LDX			#$D000
 	BCLR		1,x 	BIT2		* Clear bit-2
 	BSET		0,x 	$FF
@@ -142,8 +146,9 @@ OFFST		EQU		$24
 	BSET		3,x 	BIT2		* Set bit-2 in 3+(IX)
 		
 ***********************
-* LCD Initialization: *
-***********************		
+  LCD Initialization: 
+***********************	
+
 	LDX		#$C000
 	
 	LDAA		#$01
@@ -172,8 +177,9 @@ her6	BRSET		0,x	$80	her6
 
 
 ******************		
-* Variable Delay *
+  Variable Delay 
 ******************
+
 	LDX		#$1039						
 	BSET		0,x		BIT7	
 	
@@ -184,7 +190,7 @@ her6	BRSET		0,x	$80	her6
 
 
 ************************************
-* Initialize Characters for Mode 2 *
+  Initialize Characters for Mode 2 
 ************************************
 
 	LDAA		#$F100
@@ -196,8 +202,9 @@ her6	BRSET		0,x	$80	her6
 		
 		
 ***********************
-* Laser/PIA Test Mode *
+  Laser/PIA Main Loop 
 ***********************
+
         LDAA		#1                  * Set mode to 0
 	STAA		MODE
         
@@ -326,9 +333,8 @@ END2	INX
 LPEND	JMP         	LOOP
            
 
-			   
 ***************
-* JSR - Delay *
+  JSR - Delay 
 ***************
 delay
 	LDAA		$1031
@@ -340,7 +346,7 @@ back	DEY
 	RTS
 
 *****************************
-* Interrupt Service Routine *
+  Interrupt Service Routine 
 *****************************
 ISR	LDX		#$F000
 	LDAB		$B000
@@ -390,9 +396,6 @@ SCHAR	ADDB		SHFT
 	STAA		OFFST
 DONE	RTI 
         
-
-           
-		   
 	ORG	$FFF2
 	FDB	ISR
 	ORG	$FFFE
