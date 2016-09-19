@@ -1,12 +1,12 @@
 *****************************************************************
-*	COMPUTER SYSTEMS                                            *
-*	MAIN - FINAL                                                *
+*    COMPUTER SYSTEMS                                           *
+*    MAIN - FINAL                                               *
 *                                                               *
-*	DATE: March 17, 2016                                        *
-*	AUTHORS: Tyler Sriver | Brad Browning                       *
+*    DATE: March 17, 2016                                       *
+*    AUTHORS: Tyler Sriver | Brad Browning                      *
 *                                                               *
-*	FILE: compsysv4.txt                                         *
-*	PURPOSE: main program                                       *
+*    FILE: compsysv4.txt                                        *
+*    PURPOSE: main program                                      *
 *****************************************************************
 
 *****************************************************************
