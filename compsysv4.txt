@@ -308,92 +308,92 @@ NXTPNT2	LDAA        0,x
         LDAA        LSRON
         BRA         END2
 
-OFFTST2 CMPA        #OFF                * Test if OFF Character
+OFFTST2 CMPA        #OFF                * TEST IF "OFF" CHARACTER
         BNE         SDLTST2
         LDAA        LSROFF
         BRA         END2
 
-SDLTST2 CMPA        #SDL                * Test if end of Character
+SDLTST2 CMPA        #SDL                * TEST IF END OF CHARACTER
         BNE         CHRSND2
         BRA         LPEND
 
-CHRSND2 STAA        XLOC                * Send Points
-	INX
-	LDAA		0,x
-	STAA		YLOC
-	BRA		END2
+CHRSND2 STAA        XLOC                * SEND POINTS
+        INX
+        LDAA        0,x
+        STAA        YLOC
+        BRA        END2
 
-END2	INX
-	JSR		delay
-	BRA		NXTPNT2
+END2    INX
+        JSR        delay
+        BRA        NXTPNT2
 
-LPEND	JMP         	LOOP
+LPEND   JMP        LOOP
 
 
 *****************************************************************
   JSR - DELAY
 *****************************************************************
 delay
-	LDAA		$1031
-	ADDA		#500
-	STAA		$FB
-	LDY		$FB
-back	DEY
-	BGT		back
-	RTS
+        LDAA        $1031
+        ADDA        #500
+        STAA        $FB
+        LDY        $FB
+back    DEY
+        BGT        back
+        RTS
 
 *****************************************************************
   INTERRUPT SERVICE ROUTINE
 *****************************************************************
-ISR	LDX		#$F000
-	LDAB		$B000
-	ANDB		#%00011111
+ISR     LDX         #$F000
+        LDAB        $B000
+        ANDB        #%00011111
 
-	CMPB		#$13
-	BNE		MDTST
-	LDAA		#%00100000
-	STAA		SHFT
-	LDAA		#$12
-	STAA		OFFST
-	BRA		DONE
+        CMPB        #$13
+        BNE         MDTST
+        LDAA        #%00100000
+        STAA        SHFT
+        LDAA        #$12
+        STAA        OFFST
+        BRA         DONE
 
-MDTST	CMPB        	#$12
-    	BNE         	SCHAR
-	LDAA		MODE
-	ADDA		#1
-	STAA		MODE
-	CMPA        	#4
-    	BLO         	DONE
-    	LDAA        	#0
-	STAA		MODE
-    	BRA         	DONE
+MDTST   CMPB        #$12
+        BNE        SCHAR
+        LDAA        MODE
+        ADDA        #1
+        STAA        MODE
+        CMPA        #4
+        BLO        DONE
+        LDAA        #0
+        STAA        MODE
+        BRA        DONE
 
-SCHAR	ADDB		SHFT
-	ABX
-	LDAA		0,X
-	STAA		$C001
+SCHAR   ADDB        SHFT
+        ABX
+        LDAA        0,X
+        STAA        $C001
 
-    	LDX		DISP2
-        STX		DISP1
-        LDX		DISP3
-        STX		DISP2
-        LDX		DISP4
-        STX		DISP3
-	LDAB		$B000
-	ANDB		#%00011111
-	LDAA    	#$40
-	ADDB		OFFST
-	MUL
-	ADDD		#$F100
-	XGDX
-    	STX     	DISP4
+        LDX         DISP2
+        STX         DISP1
+        LDX         DISP3
+        STX         DISP2
+        LDX         DISP4
+        STX         DISP3
+        LDAB        $B000
+        ANDB        #%00011111
+        LDAA        #$40
+        ADDB        OFFST
+        MUL
+        ADDD        #$F100
+        XGDX
+        STX        DISP4
 
-	LDAA		#$00
-	STAA		SHFT
-	STAA		OFFST
-DONE	RTI
+        LDAA        #$00
+        STAA        SHFT
+        STAA        OFFST
+DONE    RTI
 
-	ORG	$FFF2
-	FDB	ISR
-	ORG	$FFFE
-	FDB	$E000
+        ORG        $FFF2
+        FDB        ISR
+        ORG        $FFFE
+        FDB        $E000
