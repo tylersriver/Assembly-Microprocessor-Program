@@ -25,19 +25,19 @@ ON          EQU        $01              * Laser On Code
 OFF         EQU        $00              * Laser Off Code
 SDL         EQU        $02              * Character end Code
 
-CHAR1        EQU        $40
-CHAR2        EQU        $41
-CHAR3        EQU        $42
-CHAR4        EQU        $43
+CHAR1       EQU        $40
+CHAR2       EQU        $41
+CHAR3       EQU        $42
+CHAR4       EQU        $43
 
-DISP1        EQU        $50
-DISP2        EQU        $52
-DISP3        EQU        $54
-DISP4        EQU        $56
+DISP1       EQU        $50
+DISP2       EQU        $52
+DISP3       EQU        $54
+DISP4       EQU        $56
 
-MODE         EQU        $22
-SHFT         EQU        $20
-OFFST        EQU        $24
+MODE        EQU        $22
+SHFT        EQU        $20
+OFFST       EQU        $24
 
 *****************************************************************
   FCB FOR CHARACTERS
@@ -180,12 +180,12 @@ her6    BRSET       0,x $80 her6
 *****************************************************************
 
         LDX         #$1039
-        BSET        0,x    BIT7
+        BSET        0,x BIT7
 
         JSR        delay
 
         LDX        #$1030
-        BSET       0,x    BIT5
+        BSET       0,x BIT5
 
 
 *****************************************************************
@@ -237,11 +237,11 @@ MODE1   CMPA        #1                  * TEST IF MODE 1
 
         LDAA        LSROFF
 
-        BRA        LOOP                 * END MODE 1
+        BRA         LOOP                * END MODE 1
 
 
 MODE2   CMPA        #2                  * TEST IF MODE 2
-        BNE     	MODE3
+        BNE         MODE3
 
         LDAB        #CHAR1              * SET LASER TO FIRST CHARACTER
         LDX         DISP1               * LOAD START LOCATION
@@ -281,8 +281,8 @@ SEND    STAA        XLOC                * SEND POINTS
         BRA         END
 
 END     INX                             * GET READY FOR NEXT POINT
-        JSR        delay
-        BRA        NXTPNT
+        JSR         delay
+        BRA         NXTPNT
 
 NXTCHR  INCB                            * SETUP FOR NEXT CHAR
         CMPB        #CHAR2
@@ -321,13 +321,13 @@ CHRSND2 STAA        XLOC                * SEND POINTS
         INX
         LDAA        0,x
         STAA        YLOC
-        BRA        END2
+        BRA         END2
 
 END2    INX
-        JSR        delay
-        BRA        NXTPNT2
+        JSR         delay
+        BRA         NXTPNT2
 
-LPEND   JMP        LOOP
+LPEND   JMP         LOOP
 
 
 *****************************************************************
@@ -337,9 +337,9 @@ delay
         LDAA        $1031
         ADDA        #500
         STAA        $FB
-        LDY        $FB
+        LDY         $FB
 back    DEY
-        BGT        back
+        BGT         back
         RTS
 
 *****************************************************************
@@ -358,15 +358,15 @@ ISR     LDX         #$F000
         BRA         DONE
 
 MDTST   CMPB        #$12
-        BNE        SCHAR
+        BNE         SCHAR
         LDAA        MODE
         ADDA        #1
         STAA        MODE
         CMPA        #4
-        BLO        DONE
+        BLO         DONE
         LDAA        #0
         STAA        MODE
-        BRA        DONE
+        BRA         DONE
 
 SCHAR   ADDB        SHFT
         ABX
@@ -386,7 +386,7 @@ SCHAR   ADDB        SHFT
         MUL
         ADDD        #$F100
         XGDX
-        STX        DISP4
+        STX         DISP4
 
         LDAA        #$00
         STAA        SHFT
